@@ -1,0 +1,23 @@
+# Classroom Attendance DApp
+
+A decentralized application (DApp) built using Scaffold-ETH 2 for managing classroom attendance on the blockchain.
+
+## Features
+- Create attendance sessions
+- Record student attendance (Present/Absent)
+- Store student name, teacher, and module details
+- View attendance records
+
+## Tech Stack
+- Solidity (Smart Contracts)
+- Hardhat
+- Next.js (Frontend)
+- Scaffold-ETH 2
+- Ethers.js
+
+## How to Run
+
+```bash
+yarn install
+yarn start
+yarn deploy
