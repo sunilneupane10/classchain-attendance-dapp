@@ -4,6 +4,420 @@
  */
 import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 
-const deployedContracts = {} as const;
+const deployedContracts = {
+  31337: {
+    AttendanceRegistry: {
+      address: "0xa85233C63b9Ee964Add6F2cffe00Fd84eb32338f",
+      abi: [
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "_owner",
+              type: "address",
+            },
+          ],
+          stateMutability: "nonpayable",
+          type: "constructor",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: true,
+              internalType: "uint256",
+              name: "sessionId",
+              type: "uint256",
+            },
+            {
+              indexed: true,
+              internalType: "address",
+              name: "student",
+              type: "address",
+            },
+            {
+              indexed: false,
+              internalType: "string",
+              name: "studentName",
+              type: "string",
+            },
+            {
+              indexed: false,
+              internalType: "bool",
+              name: "isPresent",
+              type: "bool",
+            },
+            {
+              indexed: false,
+              internalType: "string",
+              name: "markedByTeacher",
+              type: "string",
+            },
+          ],
+          name: "AttendanceMarked",
+          type: "event",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: true,
+              internalType: "uint256",
+              name: "sessionId",
+              type: "uint256",
+            },
+            {
+              indexed: true,
+              internalType: "address",
+              name: "student",
+              type: "address",
+            },
+            {
+              indexed: false,
+              internalType: "string",
+              name: "studentName",
+              type: "string",
+            },
+            {
+              indexed: false,
+              internalType: "bool",
+              name: "isPresent",
+              type: "bool",
+            },
+            {
+              indexed: false,
+              internalType: "string",
+              name: "markedByTeacher",
+              type: "string",
+            },
+          ],
+          name: "AttendanceUpdated",
+          type: "event",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: true,
+              internalType: "uint256",
+              name: "sessionId",
+              type: "uint256",
+            },
+            {
+              indexed: false,
+              internalType: "string",
+              name: "moduleName",
+              type: "string",
+            },
+            {
+              indexed: false,
+              internalType: "string",
+              name: "moduleCode",
+              type: "string",
+            },
+            {
+              indexed: false,
+              internalType: "string",
+              name: "teacherName",
+              type: "string",
+            },
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "date",
+              type: "uint256",
+            },
+          ],
+          name: "SessionCreated",
+          type: "event",
+        },
+        {
+          inputs: [
+            {
+              internalType: "string",
+              name: "_moduleName",
+              type: "string",
+            },
+            {
+              internalType: "string",
+              name: "_moduleCode",
+              type: "string",
+            },
+            {
+              internalType: "string",
+              name: "_teacherName",
+              type: "string",
+            },
+            {
+              internalType: "uint256",
+              name: "_date",
+              type: "uint256",
+            },
+          ],
+          name: "createSession",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "_sessionId",
+              type: "uint256",
+            },
+          ],
+          name: "getAllAttendance",
+          outputs: [
+            {
+              internalType: "address[]",
+              name: "studentAddresses",
+              type: "address[]",
+            },
+            {
+              internalType: "string[]",
+              name: "studentNames",
+              type: "string[]",
+            },
+            {
+              internalType: "bool[]",
+              name: "statuses",
+              type: "bool[]",
+            },
+            {
+              internalType: "string[]",
+              name: "markedByTeachers",
+              type: "string[]",
+            },
+            {
+              internalType: "uint256[]",
+              name: "timestamps",
+              type: "uint256[]",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "_sessionId",
+              type: "uint256",
+            },
+            {
+              internalType: "address",
+              name: "_student",
+              type: "address",
+            },
+          ],
+          name: "getAttendance",
+          outputs: [
+            {
+              internalType: "address",
+              name: "studentAddress",
+              type: "address",
+            },
+            {
+              internalType: "string",
+              name: "studentName",
+              type: "string",
+            },
+            {
+              internalType: "bool",
+              name: "isPresent",
+              type: "bool",
+            },
+            {
+              internalType: "string",
+              name: "markedByTeacher",
+              type: "string",
+            },
+            {
+              internalType: "uint256",
+              name: "timestamp",
+              type: "uint256",
+            },
+            {
+              internalType: "bool",
+              name: "exists",
+              type: "bool",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "_sessionId",
+              type: "uint256",
+            },
+          ],
+          name: "getAttendees",
+          outputs: [
+            {
+              internalType: "address[]",
+              name: "",
+              type: "address[]",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "_sessionId",
+              type: "uint256",
+            },
+          ],
+          name: "getSession",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "id",
+              type: "uint256",
+            },
+            {
+              internalType: "string",
+              name: "moduleName",
+              type: "string",
+            },
+            {
+              internalType: "string",
+              name: "moduleCode",
+              type: "string",
+            },
+            {
+              internalType: "string",
+              name: "teacherName",
+              type: "string",
+            },
+            {
+              internalType: "uint256",
+              name: "date",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "attendanceCount",
+              type: "uint256",
+            },
+            {
+              internalType: "bool",
+              name: "exists",
+              type: "bool",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "lecturer",
+          outputs: [
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "_sessionId",
+              type: "uint256",
+            },
+            {
+              internalType: "string",
+              name: "_studentName",
+              type: "string",
+            },
+            {
+              internalType: "bool",
+              name: "_isPresent",
+              type: "bool",
+            },
+          ],
+          name: "markAttendance",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "sessionCount",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          name: "sessions",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "id",
+              type: "uint256",
+            },
+            {
+              internalType: "string",
+              name: "moduleName",
+              type: "string",
+            },
+            {
+              internalType: "string",
+              name: "moduleCode",
+              type: "string",
+            },
+            {
+              internalType: "string",
+              name: "teacherName",
+              type: "string",
+            },
+            {
+              internalType: "uint256",
+              name: "date",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "attendanceCount",
+              type: "uint256",
+            },
+            {
+              internalType: "bool",
+              name: "exists",
+              type: "bool",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+      ],
+      inheritedFunctions: {},
+      deployedOnBlock: 63,
+    },
+  },
+} as const;
 
 export default deployedContracts satisfies GenericContractsDeclaration;
